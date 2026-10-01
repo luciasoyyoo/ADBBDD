@@ -31,7 +31,6 @@ Creación de la base de datos `biblioteca` conectándose como el usuario adminis
 ```
 CREATE DATABASE biblioteca;
 \c biblioteca
-
 ```
 
 **Salida:**
@@ -74,8 +73,6 @@ WHERE rolname IN ('admin_biblio', 'usuario_biblio', 'lectores');
 ```
 
 **Salida:**
-
-| 
 
 | **rolname** | **rolsuper** | **rolcreaterole** | **rolcanlogin** | 
 | admin_biblio | f | f | t | 
