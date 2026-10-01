@@ -418,7 +418,6 @@ COPY 2
 ```
 .
 ├── README.md               # Documentación y ejecuciones completas (este archivo)
-├── script.sql              # Script SQL ejecutable completo
 └── data/
     ├── libros_exportados.csv # CSV exportado
     └── nuevos_autores.csv    # CSV para importación de prueba
