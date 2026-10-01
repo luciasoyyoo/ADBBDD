@@ -413,7 +413,7 @@ COPY 2
 
 ```
 
-## Estructura sugerida para el Repositorio de GitHub
+## Estructura de la práctica 1
 
 ```
 .
