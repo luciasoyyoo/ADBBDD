@@ -29,44 +29,47 @@ En el modelo conceptual para la empresa Tajinaste S.A., se han identificado y de
 
 ### Atributos de Entidades
 
-| Entidad | Atributo | Tipo de Datos / Dominio | Ejemplo |
-| :--- | :--- | :--- | :--- |
-| **`VIVERO`** | `id_vivero` | Cadena alfanumérica (Código único) | `"VIV-001"`, `"VIV-002"` |
-| | `nombre` | Cadena de texto | `"Vivero Anaga"`, `"Vivero Central"` |
-| | `latitud` | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `28.481234` |
-| | `longitud` | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `-16.321456` |
-| **`ZONA`** | `id_zona` | Alfanumérico o secuencial entero | `"Z1"`, `"Z2"` |
-| | `nombre` | Cadena de texto | `"Zona Exterior"`, `"Almacén A"` |
-| | `latitud` | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `28.481300` |
-| | `longitud` | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `-16.321500` |
-| **`PRODUCTO`** | `id_producto` | Cadena alfanumérica | `"PROD-0045"` |
-| | `nombre` | Cadena de texto | `"Palmera Canaria"`, `"Maceta Cerámica"` |
-| | `tipo` | Cadena de texto (`ENUM`: Planta, Jardinería, Decoración) | `"Planta"` |
-| | `precio` | Decimal mayor que 0 (€) | `19.99` |
-| **`EMPLEADO`** | `id_empleado` | Cadena alfanumérica o Entero | `"EMP-102"` |
-| | `dni` | Cadena de texto (8 dígitos + letra) | `"12345678X"` |
-| | `nombre` | Cadena de texto | `"Laura"` |
-| | `apellidos` | Cadena de texto | `"Gómez Pérez"` |
-| | `telefono` | Cadena de texto (9 dígitos) | `"612345678"` |
-| **`CLIENTE_PLUS`** | `id_cliente` | Cadena alfanumérica o Entero | `"CLI-0089"` |
-| | `dni` | Cadena de texto (8 dígitos + letra) | `"87654321Y"` |
-| | `nombre` | Cadena de texto | `"Carlos"` |
-| | `email` | Cadena de texto con formato email | `"carlos@example.com"` |
-| | `fecha_ingreso` | Fecha (`DATE`) | `"2025-03-15"` |
-| | `volumen_compras_mensual` | Decimal no negativo (€) | `250.75` |
-| | `bonificaciones` | Decimal no negativo (€ o Puntos acumulados) | `12.50` |
-| **`PEDIDO`** | `id_pedido` | Cadena alfanumérica o Entero | `"PED-2026-001"` |
-| | `fecha` | Fecha y hora (`DATETIME`) | `"2026-05-10 11:30:00"` |
-| | `monto_total` | Decimal mayor que 0 (€) | `89.50` |
+| Entidad | Atributo | Tipo de Atributo | Tipo de Datos / Dominio | Ejemplo Ilustrativo |
+| :--- | :--- | :--- | :--- | :--- |
+| **`VIVERO`** | `id_vivero` | Clave Primaria (PK) | Cadena alfanumérica (Código único) | `"VIV-001"`, `"VIV-002"` |
+| | `nombre` | Simple | Cadena de texto | `"Vivero Anaga"`, `"Vivero Central"` |
+| | `latitud` | Simple | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `28.481234` |
+| | `longitud` | Simple | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `-16.321456` |
+| **`ZONA`** | `id_zona` | Clave Parcial (Partial PK) | Alfanumérico o entero secuencial por vivero | `"Z1"`, `"Z2"` |
+| | `nombre` | Simple | Cadena de texto | `"Zona Exterior"`, `"Almacén A"` |
+| | `latitud` | Simple | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `28.481300` |
+| | `longitud` | Simple | Decimal (`FLOAT` / `DOUBLE`, Coordenada WGS84) | `-16.321500` |
+| **`PRODUCTO`** | `id_producto` | Clave Primaria (PK) | Cadena alfanumérica | `"PROD-0045"` |
+| | `nombre` | Simple | Cadena de texto | `"Palmera Canaria"`, `"Maceta Cerámica"` |
+| | `tipo` | Simple | Cadena de texto (`ENUM`: Planta, Jardinería, Decoración) | `"Planta"` |
+| | `precio` | Simple | Decimal mayor que 0 (€) | `19.99` |
+| **`EMPLEADO`** | `id_empleado` | Clave Primaria (PK) | Cadena alfanumérica o Entero | `"EMP-102"` |
+| | `dni` | Simple | Cadena de texto (8 dígitos + letra) | `"12345678X"` |
+| | `nombre` | Simple | Cadena de texto | `"Laura"` |
+| | `apellidos` | Simple | Cadena de texto | `"Gómez Pérez"` |
+| | `telefono` | Simple | Cadena de texto (9 dígitos) | `"612345678"` |
+| **`CLIENTE_PLUS`** | `id_cliente` | Clave Primaria (PK) | Cadena alfanumérica o Entero | `"CLI-0089"` |
+| | `dni` | Simple | Cadena de texto (8 dígitos + letra) | `"87654321Y"` |
+| | `nombre` | Simple | Cadena de texto | `"Carlos"` |
+| | `email` | Simple | Cadena de texto con formato email | `"carlos@example.com"` |
+| | `fecha_ingreso` | Simple | Fecha (`DATE`) | `"2025-03-15"` |
+| | `volumen_compras_mensual` | Derivado / Calculado | Decimal no negativo (€) | `250.75` |
+| | `bonificaciones` | Derivado / Calculado | Decimal no negativo (€ o Puntos acumulados) | `12.50` |
+| **`PEDIDO`** | `id_pedido` | Clave Primaria (PK) | Cadena alfanumérica o Entero | `"PED-2026-001"` |
+| | `fecha` | Simple | Fecha y hora (`DATETIME`) | `"2026-05-10 11:30:00"` |
+| | `monto_total` | Simple | Decimal mayor que 0 (€) | `89.50` |
 
-### Atributos de Relaciones (Pertenecientes a enlaces N:M)
+### Atributos de Relaciones
 
-| Relación | Atributo | Tipo de Datos / Dominio | Ejemplo Ilustrativo |
-| :--- | :--- | :--- | :--- |
-| **`Tener_Stock`** | `stock` | Entero mayor o igual que 0 | `45` (unidades disponibles en esa zona) |
-| **`Asignacion_Historico`** | `fecha_inicio` | Fecha (`DATE`) | `"2026-01-01"` |
-| | `fecha_fin` | Fecha (`DATE`, puede ser nulo si está activo) | `"2026-06-30"` |
-| | `productividad` | Decimal o porcentaje ($0.0 - 100.0$) | `92.5` |
+| Relación | Entidades Vinculadas | Atributo | Tipo de Atributo | Tipo de Datos / Dominio | Ejemplo Ilustrativo |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`PERTENECE`** | `VIVERO` — `ZONA` | *(Ninguno)* | — | — | — |
+| **`TIENE`** | `ZONA` — `PRODUCTO` | `stock` | Atributo de Relación | Entero mayor o igual que 0 | `45` (unidades) |
+| **`ASIGNACION`** | `EMPLEADO` — `ZONA` | `fecha_inicio` | Atributo de Relación | Fecha (`DATE`) | `"2026-01-01"` |
+| | | `fecha_fin` | Atributo de Relación | Fecha (`DATE`, opcional/nulo si activo) | `"2026-06-30"` |
+| | | `productividad` | Atributo de Relación | Decimal o porcentaje ($0.0 - 100.0$) | `92.5` |
+| **`REALIZA`** | `CLIENTE_PLUS` — `PEDIDO` | *(Ninguno)* | — | — | — |
+| **`GESTIONA`** | `EMPLEADO` — `PEDIDO` | *(Ninguno)* | — | — | — |
 
 ---
 
