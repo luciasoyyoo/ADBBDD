@@ -7,10 +7,10 @@ Bienvenido al repositorio de la asignatura **Administración y Diseño de Bases 
 ## 📋 Información del Proyecto
 
 * **Asignatura:** Administración y Diseño de Bases de Datos
-* **Estudiante:** [Tu Nombre Completo]
-* **Grado / Titulación:** [Ingeniería Informática / Grado en Ciencia de Datos / etc.]
+* **Estudiante:** Lcuía Cabrera Garabote
+* **Grado / Titulación:** Ingeniería Informática
 * **SGBD Principal:** PostgreSQL (v13+)
-* **Herramientas:** DBeaver, pgAdmin 4, Docker, Node.js / Python / Java (según la App)
+* **Herramientas:** DBeaver, SQL, pgAdmin 4, Docker, Node.js 
 
 ---
 
